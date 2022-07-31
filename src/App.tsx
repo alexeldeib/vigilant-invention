@@ -136,6 +136,7 @@ function App() {
       <div className="currentWord">{currentWord}</div>
       <button className="validate" onClick={() => validateGuess(dict, validWords, foundWords, currentWord)}>Enter Word</button>
       <button className="clear" onClick={() => setCurrentWord('')}>Clear Guess</button>
+      <div className="totalCount">Found {foundWords.length}/{validWords.length} words </div>
 
       <div className="row">
         <button onClick={() => setCurrentWord(currentWord.concat(letters[0]))}>{letters[0]}</button>
