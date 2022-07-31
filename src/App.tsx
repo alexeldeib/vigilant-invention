@@ -128,11 +128,11 @@ function App() {
     }
   })
 
-
   return (
     <div className="App">
       <h1>Spelling Bee</h1>
 
+      {gameOver && <GameOver initialize={initialize} />}
       <div className="currentWord">{currentWord}</div>
       <button className="validate" onClick={() => validateGuess(dict, validWords, foundWords, currentWord)}>Enter Word</button>
       <button className="clear" onClick={() => setCurrentWord('')}>Clear Guess</button>
@@ -152,7 +152,7 @@ function App() {
       </div>
 
       <div className="foundWords">
-        {foundWords.map((word, index) => { return <div>{word}</div> })}
+        {foundWords.map((word, index) => { return <div key={word}>{word}</div> })}
       </div>
     </div >
   )
