@@ -16,21 +16,28 @@ function checkValidWords(words: string[], letters: string[]) {
     numbers[letter.charCodeAt(0) - 97]++
   }
 
+  let middleCharCode = letters[3].charCodeAt(0) - 97;
+
   let count = 0
   let validWords = []
+  outer:
   for (const word of words) {
-    let wordNumbers = Array(26).fill(0);
+    let middleCharFound = false;
+    // let wordNumbers = Array(26).fill(0);
     for (const letter of word) {
-      wordNumbers[letter.charCodeAt(0) - 97]++
+      let charCode = letter.charCodeAt(0) - 97;
+      // wordNumbers[letter.charCodeAt(0) - 97]++
+      if (numbers[charCode] == 0) {
+        continue outer
+      }
+      if (charCode === middleCharCode) {
+        middleCharFound = true;
+      }
     }
-    if (wordNumbers.some((_, index) => wordNumbers[index] > 0 && numbers[index] == 0)) {
-      continue
+    if (middleCharFound) {
+      validWords.push(word)
+      count++
     }
-    if (!(wordNumbers.some((_, index) => index == letters[3].charCodeAt(0) - 97))) {
-      continue
-    }
-    validWords.push(word)
-    count++
   }
   return validWords
 }
