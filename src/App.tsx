@@ -119,7 +119,9 @@ function App() {
 
   const handleKeyDown = ((e: KeyboardEvent) => {
     // let charCode = e.key.charCodeAt(0) - 97;
+    console.log(e.key);
     let index = letters.indexOf(e.key);
+    console.log(index);
     if (index != -1) {
       setCurrentWord(currentWord.concat(letters[index]));
     }
