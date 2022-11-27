@@ -117,7 +117,7 @@ function App() {
     setValidWords(initValidWords)
   }
 
-  const handleKeyDown = ((e: KeyboardEvent) => {
+  const handleKeyDown = ((e: React.KeyboardEvent<HTMLButtonElement>) => {
     // let charCode = e.key.charCodeAt(0) - 97;
     console.log(e.key);
     let index = letters.indexOf(e.key);
@@ -159,17 +159,17 @@ function App() {
       <div className="totalCount">Found {foundWords.length}/{validWords.length} words </div>
 
       <div className="row">
-        <button onClick={() => setCurrentWord(currentWord.concat(letters[0]))}>{letters[0]}</button>
-        <button onClick={() => setCurrentWord(currentWord.concat(letters[1]))}>{letters[1]}</button>
+        <button onKeyDown={(e) => handleKeyDown(e)} onClick={() => setCurrentWord(currentWord.concat(letters[0]))}>{letters[0]}</button>
+        <button onKeyDown={(e) => handleKeyDown(e)} onClick={() => setCurrentWord(currentWord.concat(letters[1]))}>{letters[1]}</button>
       </div>
       <div className="row">
-        <button onClick={() => setCurrentWord(currentWord.concat(letters[2]))}>{letters[2]}</button>
-        <button onClick={() => setCurrentWord(currentWord.concat(letters[3]))}>{letters[3]}</button>
-        <button onClick={() => setCurrentWord(currentWord.concat(letters[4]))}>{letters[4]}</button>
+        <button onKeyDown={(e) => handleKeyDown(e)} onClick={() => setCurrentWord(currentWord.concat(letters[2]))}>{letters[2]}</button>
+        <button onKeyDown={(e) => handleKeyDown(e)} onClick={() => setCurrentWord(currentWord.concat(letters[3]))}>{letters[3]}</button>
+        <button onKeyDown={(e) => handleKeyDown(e)} onClick={() => setCurrentWord(currentWord.concat(letters[4]))}>{letters[4]}</button>
       </div>
       <div className="row">
-        <button onClick={() => setCurrentWord(currentWord.concat(letters[5]))}>{letters[5]}</button>
-        <button onClick={() => setCurrentWord(currentWord.concat(letters[6]))}>{letters[6]}</button>
+        <button onKeyDown={(e) => handleKeyDown(e)} onClick={() => setCurrentWord(currentWord.concat(letters[5]))}>{letters[5]}</button>
+        <button onKeyDown={(e) => handleKeyDown(e)} onClick={() => setCurrentWord(currentWord.concat(letters[6]))}>{letters[6]}</button>
       </div>
 
       <div className="foundWords">
