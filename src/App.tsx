@@ -104,7 +104,7 @@ function App() {
     let initValidWords = checkValidWords(allValidWords, initLetters);
     let iterations = 1;
     // while (initValidWords.length < 20 || initValidWords.length > 50) {
-    while (initValidWords.length > 20 || !initValidWords.some((val) => initLetters.every((letter) => {val.includes(letter)}))) {
+    while (initValidWords.length > 10) {
       console.log("iterations", iterations)
       initLetters = getSevenRandomLetters()
       initValidWords = checkValidWords(allValidWords, initLetters);
