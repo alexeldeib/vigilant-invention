@@ -117,6 +117,14 @@ function App() {
     setValidWords(initValidWords)
   }
 
+  const handleKeyDown = ((e: KeyboardEvent) => {
+    // let charCode = e.key.charCodeAt(0) - 97;
+    let index = letters.indexOf(e.key);
+    if (index != -1) {
+      setCurrentWord(currentWord.concat(letters[index]));
+    }
+  })
+
   const validateGuess = ((trie: Trie, valid: string[], found: string[], guess: string) => {
     const isValid = trie.has(guess)
     const exists = found.includes(guess)
