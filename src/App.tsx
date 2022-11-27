@@ -26,6 +26,9 @@ function checkValidWords(words: string[], letters: string[]) {
     if (wordNumbers.some((_, index) => wordNumbers[index] > 0 && numbers[index] == 0)) {
       continue
     }
+    if (!(wordNumbers.some((_, index) => index == letters[3].charCodeAt(0) - 97))) {
+      continue
+    }
     validWords.push(word)
     count++
   }
